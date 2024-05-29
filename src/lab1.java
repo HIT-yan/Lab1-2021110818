@@ -64,9 +64,9 @@ public class lab1 {
         panel.add(loadButton);
         panel.add(new JLabel("Select Function:"));
         panel.add(functionSelector);
-        panel.add(new JLabel("Input a:"));
+        panel.add(new JLabel("Input x:"));
         panel.add(inputField1);
-        panel.add(new JLabel("Input b:"));
+        panel.add(new JLabel("Input y:"));
         panel.add(inputField2);
         panel.add(executeButton);
         panel.add(stopButton);
