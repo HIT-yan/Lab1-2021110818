@@ -20,7 +20,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 
 public class lab1 {
-    private static Map<String, Map<String, Integer>> graph = new HashMap<>();
+    public static Map<String, Map<String, Integer>> graph = new HashMap<>();
     private static boolean stopRandomWalk = false;
     private static Thread randomWalkThread;
     private static JTextArea resultArea; // 将resultArea定义为类字段
@@ -64,9 +64,9 @@ public class lab1 {
         panel.add(loadButton);
         panel.add(new JLabel("Select Function:"));
         panel.add(functionSelector);
-        panel.add(new JLabel("Input x:"));
+        panel.add(new JLabel("Input 1:"));
         panel.add(inputField1);
-        panel.add(new JLabel("Input y:"));
+        panel.add(new JLabel("Input 2:"));
         panel.add(inputField2);
         panel.add(executeButton);
         panel.add(stopButton);
@@ -137,7 +137,7 @@ public class lab1 {
         frame.setVisible(true);
     }
 
-    private static String readFile(String filePath) {
+    public static String readFile(String filePath) {
         StringBuilder content = new StringBuilder();
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             String line;
@@ -151,13 +151,13 @@ public class lab1 {
         return content.toString();
     }
 
-    private static String[] preprocessText(String text) {
+    public static String[] preprocessText(String text) {
         return text.replaceAll("[^a-zA-Z\\s]", " ")
                 .toLowerCase()
                 .split("\\s+");
     }
 
-    private static Map<String, Map<String, Integer>> buildGraph(String[] words) {
+    public static Map<String, Map<String, Integer>> buildGraph(String[] words) {
         Map<String, Map<String, Integer>> graph = new HashMap<>();
         for (int i = 0; i < words.length; i++) {
             if (!words[i].isEmpty()) {
@@ -171,7 +171,7 @@ public class lab1 {
         return graph;
     }
 
-    private static String queryBridgeWords(String word1, String word2) {
+    public static String queryBridgeWords(String word1, String word2) {
         if (!graph.containsKey(word1) || !graph.containsKey(word2)) {
             return "No " + word1 + " or " + word2 + " in the graph!";
         }
